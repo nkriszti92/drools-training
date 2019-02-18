@@ -18,3 +18,11 @@ rule "Expired or full passport"
   then
 	System.out.println( "This passport is INVALID because it is expired or has no space for visa" );
 end
+
+rule "Arrested"
+  dialect "mvel"
+  when
+	Passport( isWanted() )
+  then
+	System.out.println( "This passport is INVALID, you are arrested" );
+end
