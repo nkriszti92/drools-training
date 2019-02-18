@@ -19,6 +19,7 @@ public class Passport {
   private LocalDate expiresOn;
   private int unusedVisaPages;
   private int age;
+  private boolean wanted;
 
   private Validation validation = Validation.UNKNOWN;
 
@@ -75,6 +76,14 @@ public class Passport {
     this.cause = cause;
   }
 
+  public boolean isWanted() {
+    return wanted;
+  }
+
+  public void setWanted(boolean wanted) {
+    this.wanted = wanted;
+  }
+
   @Override
   public String toString() {
     return String.format("Passport[no:%s, name:%s]", passportNumber, name);
@@ -90,6 +99,7 @@ public class Passport {
     private LocalDate expiresOn;
     private int unusedVisaPages;
     private int age;
+     private boolean wanted;
 
     private PassportBuilder() {
     }
@@ -119,6 +129,11 @@ public class Passport {
       return this;
     }
 
+     public PassportBuilder withWanted(boolean wanted) {
+       this.wanted = wanted;
+       return this;
+     }
+
     public Passport build() {
       Passport passport = new Passport();
       passport.passportNumber = passportNumber;
@@ -126,6 +141,7 @@ public class Passport {
       passport.expiresOn = expiresOn;
       passport.unusedVisaPages = unusedVisaPages;
       passport.age = age;
+      passport.wanted = wanted;
       return passport;
     }
   }
@@ -140,13 +156,14 @@ public class Passport {
         Objects.equals(passportNumber, passport.passportNumber) &&
         Objects.equals(name, passport.name) &&
         Objects.equals(expiresOn, passport.expiresOn) &&
+        Objects.equals(wanted, passport.wanted) &&
         validation == passport.validation &&
         Objects.equals(cause, passport.cause);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(passportNumber, name, expiresOn, unusedVisaPages, age, validation, cause);
+    return Objects.hash(passportNumber, name, expiresOn, unusedVisaPages, age, wanted, validation, cause);
   }
 
 }

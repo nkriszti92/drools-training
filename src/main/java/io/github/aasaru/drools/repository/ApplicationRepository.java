@@ -37,6 +37,7 @@ public class ApplicationRepository {
       .withUnusedVisaPages(1)
       .withExpiresOn(LocalDate.of(2017, Month.DECEMBER, 17))
       .withAge(50)
+      .withWanted(true)
       .build());
 
     passports.add(Passport.newBuilder()
@@ -45,6 +46,7 @@ public class ApplicationRepository {
       .withUnusedVisaPages(0)
       .withExpiresOn(LocalDate.of(2045, Month.MAY, 11))
       .withAge(12)
+      .withWanted(true)
       .build());
 
     passports.add(Passport.newBuilder()
@@ -53,6 +55,7 @@ public class ApplicationRepository {
       .withUnusedVisaPages(20)
       .withExpiresOn(LocalDate.of(2047, Month.NOVEMBER, 25))
       .withAge(16)
+      .withWanted(false)
       .build());
 
     passports.add(Passport.newBuilder()
@@ -61,6 +64,7 @@ public class ApplicationRepository {
       .withUnusedVisaPages(10)
       .withExpiresOn(LocalDate.of(2045, Month.APRIL, 10))
       .withAge(17)
+      .withWanted(false)
       .build());
 
     return passports;
